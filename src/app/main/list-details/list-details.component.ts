@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from '../rest.service';
+import { RestService } from '../../rest.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -13,6 +13,7 @@ export class ListDetailsComponent implements OnInit {
   modalRef: BsModalRef;
   modalRefDel: BsModalRef
   delUserId: any;
+  showLoader:boolean=true;
 
   constructor(private restservice : RestService,private modalService: BsModalService) { }
 
@@ -23,6 +24,7 @@ export class ListDetailsComponent implements OnInit {
 
   getUsersList(){
     this.restservice.getUsers().subscribe((res:any)=>{
+      this.showLoader = false;
       this.userList=res;
     })
   }
@@ -46,6 +48,7 @@ open(template,userObj){
   this.updateUser =JSON.parse(JSON.stringify(userObj));
 }
 onEditSubmit(form){
+  this.showLoader = true;
 
   let newObj={
     address: form.value.address,
@@ -63,6 +66,7 @@ onEditSubmit(form){
 }
 
 confirm(): void {
+  this.showLoader= true;
   this.modalRefDel.hide();
   this.deleteUser(this.delUserId);
 }

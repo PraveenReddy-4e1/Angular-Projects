@@ -1,10 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    padding: 20px;
-}
+
 .mt-20{
     margin-top: 20px;
 }
 .ml-20{
     margin-left: 20px;
+}
+.loading{
+    display: flex;
+    justify-content: center
+}
+.scrollClass::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(#00C658, #06b306);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.scrollClass::-webkit-scrollbar {
+    width: 5px;
+}
+footer{
+    position: fixed;
+    width: 100%;
+    bottom:0;
 }

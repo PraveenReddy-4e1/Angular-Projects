@@ -1,5 +1,5 @@
-<div class="mt-20">
-    <table class="table table-striped">
+<div class="mt-20" *ngIf="!showLoader">
+    <table class="table table-striped scrollClass" >
         <thead>
           <tr>
            
@@ -11,7 +11,7 @@
             <th>Edit</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="scrollClass">
           <tr *ngFor="let user of userList">
             <td>{{user.fname}}</td>
             <td>{{user.lname}}</td>
@@ -30,6 +30,9 @@
           
         </tbody>
       </table>
+</div>
+<div *ngIf="showLoader" class="loading">
+  <img src="../../assets/images/loading.gif">
 </div>
 
 <!-- Modal -->

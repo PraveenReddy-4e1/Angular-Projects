@@ -1,8 +1,9 @@
+<app-header></app-header>
 <div class="container">
-<h1>Angular CRUD</h1>
-<div class="mt-20">
-  <button class="btn btn-primary" [routerLink]="['/add']">ADD</button >
-    <button class="btn btn-secondary ml-20" [routerLink]="['/list']">LIST</button >
-    </div>
+  <div class="mt-20">
+    <button class="btn btn-secondary" [routerLink]="['/list']">LIST</button >
+    <button class="btn btn-primary ml-20" style="float: right;" [routerLink]="['/add']">ADD</button >
+  </div>
 <router-outlet></router-outlet>
 </div>
+<app-footer></app-footer>

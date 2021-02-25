@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms';
-import { RestService } from '../rest.service';
+import { RestService } from '../../rest.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-details.component.scss']
 })
 export class AddDetailsComponent implements OnInit {
-
+  showLoader:boolean=false;
   addForm = new FormGroup({
     firstName : new FormControl (''),
     lastName:  new FormControl (''),
@@ -23,6 +23,7 @@ export class AddDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
+    this.showLoader=true;
     let newObj={
       address: this.addForm.value.address,
       email: this.addForm.value.email,
